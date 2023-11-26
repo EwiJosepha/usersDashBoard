@@ -1,7 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import useLocalStorage from "use-local-storage";
+import { useContext } from "react";
+// import { useContext } from "react";
 function Profilepage () {
+  const [username, setUsername]=useContext()
   const [values, setValues] = useLocalStorage("userData", {
     defaultValue: {},
   });
@@ -23,9 +26,10 @@ function Profilepage () {
       .required("Require"),
   });
 
- 
-  const navigate = useNavigate();
-  const updatevalue = (values) => setValues(values)
+   const updatevalue = (values, username) => {
+    setValues(values)
+    setUsername (values)
+  }
   
   return (
    <>
@@ -49,7 +53,6 @@ function Profilepage () {
            
             setValues(values);
 
-            navigate("/Profilepic");
           }}
         >
           {({ isSubmitting }) => (
@@ -121,6 +124,8 @@ function Profilepage () {
           )}
         </Formik>
       </center>
+
+      {username}
    </>
   )
 

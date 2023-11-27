@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { Appcontext } from "../../App";
 import Editepage from "./Editepage";
+import { Appcontext } from "../../context/AppContext";
 function Viewprofile () {
 
   const {user, setUser} = useContext(Appcontext)

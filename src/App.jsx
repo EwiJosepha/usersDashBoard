@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Route,Routes } from 'react-router-dom'
 import './App.css'
 import Home from './Components/Home/Home'
 import Profilepage from './Components/Profile/Profilepage'
-import { createContext } from 'react'
 import { useState } from 'react'
 import Viewprofile from './Components/Profile/Viewprofile'
 import Editepage from './Components/Profile/Editepage'
-export const Appcontext = createContext(null)
+import { Appcontext } from './context/AppContext'
+import useLocalStorage from 'use-local-storage'
 
 
 function App() {
-  const[user, setUser]= useState({})
+  const[user, setUser] =  useLocalStorage("userData")
+  console.log(user);
 
   return (
     <>

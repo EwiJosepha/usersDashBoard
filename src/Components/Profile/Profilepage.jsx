@@ -5,8 +5,7 @@ import useLocalStorage from "use-local-storage";
 import { useNavigate } from "react-router-dom";
 // import { useContext } from "react";
 import { useContext, useEffect } from "react";
-import { Appcontext } from "../../App";
-
+import { Appcontext } from "../../context/AppContext";
 
 
 
@@ -16,7 +15,7 @@ function Profilepage () {
     defaultValue: {},
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {user, setUser} = useContext(Appcontext)
   

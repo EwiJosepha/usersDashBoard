@@ -1,25 +1,17 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import useLocalStorage from "use-local-storage";
-// import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-// import { useContext } from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Appcontext } from "../../App";
+import useLocalStorage from "use-local-storage";
+import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useNavigate } from "react-router-dom";
 
+function Editepage() {
+  const navigate = useNavigate();
 
-
-
-
-function Profilepage () {
+  const { user, setUser } = useContext(Appcontext);
   const [values, setValues] = useLocalStorage("userData", {
     defaultValue: {},
   });
-
-  const navigate = useNavigate()
-
-  const {user, setUser} = useContext(Appcontext)
-  
 
   const SignupSchema = Yup.object().shape({
     firstname: Yup.string()
@@ -42,36 +34,33 @@ function Profilepage () {
       .required("Require"),
   });
 
-   const updatevalue = (values) => {
-    setValues(values)
-  }
-  
+  const updatevalue = (values) => {
+    setValues(values);
+  };
   return (
-   <>
-   <center className="max-w-md mx-auto bg-white p-8 border rounded shadow-md">
-        <h1 className=" text-gray-700">Register a new account</h1>
+    <>
+      <center className="max-w-md mx-auto bg-white p-8 border rounded shadow-md">
+        <h1 className=" text-gray-700">Edit your profile</h1>
         <Formik
           initialValues={{
             firstname: "",
             lastname: "",
             email: "",
             number: "",
-            address: "",
+            adress: "",
             password: "",
           }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
             // same shape as initial values
-            
-            console.log(values);
-            updatevalue(values)
-           setUser(values)
-           
-            setValues(values);
-            
-              navigate("/Viewprofile")
-        
 
+            console.log(values);
+            updatevalue(values);
+            setUser(values);
+
+            setValues(values);
+
+            navigate("/Viewprofile");
           }}
         >
           {({ isSubmitting }) => (
@@ -79,13 +68,20 @@ function Profilepage () {
               <label className="block text-gray-700 font-bold mb-2 float-left">
                 FirstName:
               </label>
+
               <Field
                 type="text"
                 name="firstname"
                 placeholder="Enter your fullname"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
+
+              <p className=" text-2xl text-red-700">
+                Current FirstName: {user.firstname}.
+              </p>
+              <br />
               <ErrorMessage name="firstname" component="div" />
+
               <br />
               <label className="block text-gray-700 font-bold mb-2 float-left">
                 LastName:
@@ -96,7 +92,12 @@ function Profilepage () {
                 placeholder="Enter your fullname"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
+              <p className=" text-2xl text-red-700">
+                Current LastName: {user.lastname}.
+              </p>
+              <br />
               <ErrorMessage name="lastname" component="div" />
+
               <br />
               <label className="block text-gray-700 font-bold mb-2 float-left">
                 Email:
@@ -107,7 +108,13 @@ function Profilepage () {
                 placeholder="Enter email address"
                 className="w-full px-3 py-2 border rounded-lg bg-gray-700 outline-none  text-white"
               />
+
+              <p className=" text-2xl text-red-700">
+                Current Email: {user.email}.
+              </p>
+              <br />
               <ErrorMessage name="email" component="div" />
+
               <br />
               <label className="block text-gray-700 font-bold mb-2 float-left">
                 Adress:
@@ -118,7 +125,12 @@ function Profilepage () {
                 placeholder="Enter address"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
+              <p className=" text-2xl text-red-700">
+                Current Adress: {user.adress}.
+              </p>
+              <br />
               <ErrorMessage name="adress" component="div" />
+
               <br />
               <label className="block text-gray-700 font-bold mb-2 float-left">
                 Number:
@@ -129,6 +141,10 @@ function Profilepage () {
                 placeholder="Enter phone-number"
                 className="w-full px-3 py-2 border rounded-lg  bg-gray-700 outline-none  text-white"
               />
+              <p className=" text-2xl text-red-700">
+                Current Number: {user.number}.
+              </p>
+              <br />
               <ErrorMessage name="number" component="div" />
               <br />
               <label className="block text-gray-700 font-bold mb-2 float-left">
@@ -140,13 +156,16 @@ function Profilepage () {
                 placeholder="Enter phone-Password"
                 className="w-full px-3 py-2 border bg-gray-700 text-white rounded-lg outline-none"
               />
+              <p className=" text-2xl text-red-700">
+                Current Password: {user.password}.
+              </p>
+              <br />
               <ErrorMessage name="password" component="div" />
               <br />
               <br />
               <button
                 type="submit"
                 disabled={isSubmitting}
-               
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 outline-none"
               >
                 Submit
@@ -155,9 +174,8 @@ function Profilepage () {
           )}
         </Formik>
       </center>
-
-   </>
-  )
-
+    </>
+  );
 }
-export default Profilepage
+
+export default Editepage;

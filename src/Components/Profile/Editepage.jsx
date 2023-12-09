@@ -4,6 +4,7 @@ import useLocalStorage from "use-local-storage";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
+import Avatar from "./Avatar";
 
 function Editepage() {
   const navigate = useNavigate();
@@ -14,24 +15,16 @@ function Editepage() {
   });
 
   const SignupSchema = Yup.object().shape({
-    firstname: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    lastname: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    number: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
+    firstname: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+    // .required("Required"),
+    lastname: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+    // .required("Required"),
+    number: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
+    // .required("Required"),
     email: Yup.string().email("Invalid email").required("Required"),
     adress: Yup.string().required("Required"),
-    password: Yup.string()
-      .min(4, "Too Short!")
-      .max(11, "Too Long!")
-      .required("Require"),
+    password: Yup.string().min(4, "Too Short!").max(11, "Too Long!"),
+    // .required("Require"),
   });
 
   const updatevalue = (values) => {
@@ -41,6 +34,7 @@ function Editepage() {
     <>
       <center className="max-w-[55%] mx-auto bg-white p-8 border rounded shadow-md mt-10 mb-10">
         <h1 className=" text-gray-700 text-2xl">Edit your profile</h1>
+        <Avatar />
         <Formik
           initialValues={{
             firstname: "",

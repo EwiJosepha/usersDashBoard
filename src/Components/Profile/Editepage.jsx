@@ -39,8 +39,8 @@ function Editepage() {
   };
   return (
     <>
-      <center className="max-w-md mx-auto bg-white p-8 border rounded shadow-md">
-        <h1 className=" text-gray-700">Edit your profile</h1>
+      <center className="max-w-[55%] mx-auto bg-white p-8 border rounded shadow-md mt-10 mb-10">
+        <h1 className=" text-gray-700 text-2xl">Edit your profile</h1>
         <Formik
           initialValues={{
             firstname: "",
@@ -65,7 +65,7 @@ function Editepage() {
         >
           {({ isSubmitting }) => (
             <Form>
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-gray-700 font-bold mb-2 float-left text-2xl">
                 FirstName:
               </label>
 
@@ -83,7 +83,7 @@ function Editepage() {
               <ErrorMessage name="firstname" component="div" />
 
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-gray-700 font-bold mb-2 float-left text-2xl">
                 LastName:
               </label>
               <Field
@@ -99,7 +99,7 @@ function Editepage() {
               <ErrorMessage name="lastname" component="div" />
 
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-gray-700 font-bold mb-2 float-left text-2xl">
                 Email:
               </label>
               <Field
@@ -116,7 +116,7 @@ function Editepage() {
               <ErrorMessage name="email" component="div" />
 
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-gray-700 font-bold mb-2 float-left text-2xl">
                 Adress:
               </label>
               <Field
@@ -132,7 +132,7 @@ function Editepage() {
               <ErrorMessage name="adress" component="div" />
 
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-gray-700 font-bold mb-2 float-left text-2xl">
                 Number:
               </label>
               <Field
@@ -147,7 +147,7 @@ function Editepage() {
               <br />
               <ErrorMessage name="number" component="div" />
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-gray-700 font-bold mb-2 float-left text-3xl">
                 Password:
               </label>
               <Field

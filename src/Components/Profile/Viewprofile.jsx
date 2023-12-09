@@ -9,17 +9,14 @@ function Viewprofile () {
   console.log("user from contex", user);
   
   const values = JSON.parse(localStorage.getItem('userData'))
+  const targetimg = localStorage.getItem("targetimg")
   
-
-// useEffect(()=>{
-//   console.log('values', values);
-// },[])
-
   return <>
 
   <div className="px-8 py-6 max-w-md mx-auto bg-white p-8 border rounded shadow-md">
     <div className="font-bold text-xl mb-2">
       <p className= " text-3xl font-bold underline w-full px-6 py-2 border text-indigo-700">User's Information</p><br/>
+      <img src={targetimg} /><br/>
       <p className="text-2xl text-blue-600">FirstName: {user.firstname}.</p><br/>
       <p className="text-2xl text-blue-600">LastName: {user.lastname}.</p><br/>
       <p className="text-2xl text-blue-600">Email: {user.email}.</p><br/>
@@ -28,7 +25,7 @@ function Viewprofile () {
       <p className="text-2xl text-blue-600">Password: {user.password}.</p><br/>
      
     </div>
-    <Link to="/Editepage"><button className=" bg-indigo-700 text-2xl text-white font-bold underline w-full px-3 py-2 border">Edit Data</button></Link>
+    <Link to="/Editepage"><button className=" bg-indigo-700 text-2xl text-white font-bold underline w-full px-3 py-2 border">Edit Info</button></Link>
 
     </div>
   </>

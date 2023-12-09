@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 // import { useContext } from "react";
 import { useContext, useEffect } from "react";
 import { Appcontext } from "../../context/AppContext";
+import Avatar from "./Avatar";
 
 
 
@@ -47,8 +48,9 @@ function Profilepage () {
   
   return (
    <>
-   <center className="max-w-md mx-auto bg-white p-8 border rounded shadow-md">
-        <h1 className=" text-gray-700">Register a new account</h1>
+   <center className="max-w-[55%] mx-auto bg-white p-8 border rounded shadow-md mt-10 mb-10">
+        <h1 className=" text-2xl text-blue-600  font-bold mb-4">Register a new account</h1>
+        <Avatar />
         <Formik
           initialValues={{
             firstname: "",
@@ -75,69 +77,69 @@ function Profilepage () {
         >
           {({ isSubmitting }) => (
             <Form>
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block  font-bold mb-2 float-left text-2xl text-blue-600">
                 FirstName:
               </label>
               <Field
                 type="text"
                 name="firstname"
                 placeholder="Enter your fullname"
-                className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
+                className="w-full px-3 py-2 border rounded-lg outline-none   text-black"
               />
               <ErrorMessage name="firstname" component="div" />
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-2xl text-blue-600 font-bold mb-2 float-left">
                 LastName:
               </label>
               <Field
                 type="text"
                 name="lastname"
                 placeholder="Enter your fullname"
-                className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
+                className="w-full px-3 py-2 border rounded-lg outline-none last:text-black"
               />
               <ErrorMessage name="lastname" component="div" />
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-2xl text-blue-600 font-bold mb-2 float-left">
                 Email:
               </label>
               <Field
                 type="email"
                 name="email"
                 placeholder="Enter email address"
-                className="w-full px-3 py-2 border rounded-lg bg-gray-700 outline-none  text-white"
+                className="w-full px-3 py-2 border rounded-lg  outline-none  text-black"
               />
               <ErrorMessage name="email" component="div" />
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-2xl text-blue-600 font-bold mb-2 float-left">
                 Adress:
               </label>
               <Field
                 type="adress"
                 name="adress"
                 placeholder="Enter address"
-                className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
+                className="w-full px-3 py-2 border rounded-lg outline-none text-black"
               />
               <ErrorMessage name="adress" component="div" />
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-2xl text-blue-600 font-bold mb-2 float-left">
                 Number:
               </label>
               <Field
                 type="number"
                 name="number"
                 placeholder="Enter phone-number"
-                className="w-full px-3 py-2 border rounded-lg  bg-gray-700 outline-none  text-white"
+                className="w-full px-3 py-2 border rounded-lg  text-black"
               />
               <ErrorMessage name="number" component="div" />
               <br />
-              <label className="block text-gray-700 font-bold mb-2 float-left">
+              <label className="block text-2xl text-blue-600 font-bold mb-2 float-left">
                 Password:
               </label>
               <Field
                 type="password"
                 name="password"
                 placeholder="Enter phone-Password"
-                className="w-full px-3 py-2 border bg-gray-700 text-white rounded-lg outline-none"
+                className="w-full px-3 py-2 border text-black rounded-lg outline-none"
               />
               <ErrorMessage name="password" component="div" />
               <br />

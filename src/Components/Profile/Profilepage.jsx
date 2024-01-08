@@ -36,7 +36,7 @@ function Profilepage () {
       .required("Required"),
     email: Yup.string().email("Invalid email").required("Required"),
     adress: Yup.string().required("Required"),
-    password: Yup.string().password('invalid-password')
+    password: Yup.string()
       .min(4, "Too Short!")
       .max(11, "Too Long!")
       .required("Require"),

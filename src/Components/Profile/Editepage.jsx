@@ -14,8 +14,7 @@ function Editepage() {
     defaultValue: {},
   });
 
-  const prevpassword = user.password
-  let response
+  const prevpassword = user.password;
 
   const SignupSchema = Yup.object().shape({
     firstname: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
@@ -30,16 +29,26 @@ function Editepage() {
     // .required("Require"),
   });
 
-  function forpasswordCheck () {
-    while(response !== prevpassword){
-      response= window.prompt("invalid password")
-    }
-alert('u got it')
+  function forpasswordCheck() {
+    let response;
+    let entrycount = 0;
+    let entrylimit = 3;
+    let error = false;
 
-  
+    if (entrycount < entrylimit) {
+      while(response !== prevpassword && error ){
+        response= window.prompt("Previous Password")
+      entrycount++;
+      }
+    } else {
+      error = true;
+    }
+
+    if (err) {
+      alert("too many times");
+    }
   }
- 
- 
+
   const updatevalue = (values) => {
     setValues(values);
   };
@@ -96,7 +105,7 @@ alert('u got it')
                 placeholder="Enter your fullname"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
-            
+
               <br />
               <ErrorMessage name="lastname" component="div" />
 
@@ -124,7 +133,7 @@ alert('u got it')
                 placeholder="Enter address"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
-            
+
               <br />
               <ErrorMessage name="adress" component="div" />
 
@@ -138,21 +147,34 @@ alert('u got it')
                 placeholder="Enter phone-number"
                 className="w-full px-3 py-2 border rounded-lg  bg-gray-700 outline-none  text-white"
               />
-            
+
               <br />
               <ErrorMessage name="number" component="div" />
               <br />
-              {/* <ErrorMessage name="password" component="div" />
-              <label className="block text-gray-700 font-bold mb-2 float-left text-3xl">
-                Password:
-              </label>
-              <Field
-                type="password"
-                name="password"
-                placeholder="Enter phone-Password"
-                className="w-full px-3 py-2 border bg-gray-700 text-white rounded-lg outline-none"
-              /> */}
-              
+              <button
+                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 outline-none"
+                onClick={forpasswordCheck}
+              >
+                password check
+              </button>
+              <br />
+              <ErrorMessage name="password" component="div" />
+              {prevpassword ? (
+                <>
+                  <label className="block text-gray-700 font-bold mb-2 float-left text-3xl">
+                    Password:
+                  </label>
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Enter phone-Password"
+                    className="w-full px-3 py-2 border bg-gray-700 text-white rounded-lg outline-none"
+                  />
+                </>
+              ) : (
+                ""
+              )}
+
               <br />
               <br />
               <button
@@ -165,8 +187,6 @@ alert('u got it')
             </Form>
           )}
         </Formik>
-        <button onClick={forpasswordCheck}>password check</button>
-
       </center>
     </>
   );

@@ -31,12 +31,12 @@ function Profilepage () {
       .max(50, "Too Long!")
       .required("Required"),
     number: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
+      .min(8, "Too Short!")
+      .max(9, "Too Long!")
       .required("Required"),
     email: Yup.string().email("Invalid email").required("Required"),
     adress: Yup.string().required("Required"),
-    password: Yup.string()
+    password: Yup.string().password('invalid-password')
       .min(4, "Too Short!")
       .max(11, "Too Long!")
       .required("Require"),

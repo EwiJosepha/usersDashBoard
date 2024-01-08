@@ -14,6 +14,9 @@ function Editepage() {
     defaultValue: {},
   });
 
+  const prevpassword = user.password
+  let response
+
   const SignupSchema = Yup.object().shape({
     firstname: Yup.string().min(2, "Too Short!").max(50, "Too Long!"),
     // .required("Required"),
@@ -27,6 +30,16 @@ function Editepage() {
     // .required("Require"),
   });
 
+  function forpasswordCheck () {
+    while(response !== prevpassword){
+      response= window.prompt("invalid password")
+    }
+alert('u got it')
+
+  
+  }
+ 
+ 
   const updatevalue = (values) => {
     setValues(values);
   };
@@ -129,6 +142,7 @@ function Editepage() {
               <br />
               <ErrorMessage name="number" component="div" />
               <br />
+              {/* <ErrorMessage name="password" component="div" />
               <label className="block text-gray-700 font-bold mb-2 float-left text-3xl">
                 Password:
               </label>
@@ -137,10 +151,8 @@ function Editepage() {
                 name="password"
                 placeholder="Enter phone-Password"
                 className="w-full px-3 py-2 border bg-gray-700 text-white rounded-lg outline-none"
-              />
-            
-              <br />
-              <ErrorMessage name="password" component="div" />
+              /> */}
+              
               <br />
               <br />
               <button
@@ -153,6 +165,8 @@ function Editepage() {
             </Form>
           )}
         </Formik>
+        <button onClick={forpasswordCheck}>password check</button>
+
       </center>
     </>
   );

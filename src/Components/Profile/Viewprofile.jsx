@@ -38,6 +38,11 @@ function Viewprofile() {
             Edit Info
           </button>
         </Link>
+        <Link to="/">
+          <button className=" bg-indigo-700 text-2xl text-white font-bold underline w-full px-3 py-2 border">
+            Home-Page
+          </button>
+        </Link>
       </div>
     </>
   );

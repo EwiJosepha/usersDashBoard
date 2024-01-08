@@ -37,12 +37,12 @@ function Editepage() {
         <Avatar />
         <Formik
           initialValues={{
-            firstname: "",
-            lastname: "",
-            email: "",
-            number: "",
-            adress: "",
-            password: "",
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            number: user.number,
+            adress: user.adress,
+            password: user.password,
           }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
@@ -70,9 +70,6 @@ function Editepage() {
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
 
-              <p className=" text-2xl text-red-700">
-                Current FirstName: {user.firstname}.
-              </p>
               <br />
               <ErrorMessage name="firstname" component="div" />
 
@@ -86,9 +83,7 @@ function Editepage() {
                 placeholder="Enter your fullname"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
-              <p className=" text-2xl text-red-700">
-                Current LastName: {user.lastname}.
-              </p>
+            
               <br />
               <ErrorMessage name="lastname" component="div" />
 
@@ -103,9 +98,6 @@ function Editepage() {
                 className="w-full px-3 py-2 border rounded-lg bg-gray-700 outline-none  text-white"
               />
 
-              <p className=" text-2xl text-red-700">
-                Current Email: {user.email}.
-              </p>
               <br />
               <ErrorMessage name="email" component="div" />
 
@@ -119,9 +111,7 @@ function Editepage() {
                 placeholder="Enter address"
                 className="w-full px-3 py-2 border rounded-lg outline-none bg-gray-700  text-white"
               />
-              <p className=" text-2xl text-red-700">
-                Current Adress: {user.adress}.
-              </p>
+            
               <br />
               <ErrorMessage name="adress" component="div" />
 
@@ -135,9 +125,7 @@ function Editepage() {
                 placeholder="Enter phone-number"
                 className="w-full px-3 py-2 border rounded-lg  bg-gray-700 outline-none  text-white"
               />
-              <p className=" text-2xl text-red-700">
-                Current Number: {user.number}.
-              </p>
+            
               <br />
               <ErrorMessage name="number" component="div" />
               <br />
@@ -150,9 +138,7 @@ function Editepage() {
                 placeholder="Enter phone-Password"
                 className="w-full px-3 py-2 border bg-gray-700 text-white rounded-lg outline-none"
               />
-              <p className=" text-2xl text-red-700">
-                Current Password: {user.password}.
-              </p>
+            
               <br />
               <ErrorMessage name="password" component="div" />
               <br />

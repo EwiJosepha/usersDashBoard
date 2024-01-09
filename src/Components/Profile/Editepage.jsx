@@ -35,18 +35,14 @@ function Editepage() {
     let entrylimit = 3;
     let error = false;
 
-    if (entrycount < entrylimit) {
-      while(response !== prevpassword && error ){
-        response= window.prompt("Previous Password")
-      entrycount++;
-      }
-    } else {
-      error = true;
+    while (response !== prevpassword) {
+      response = window.prompt("Previous Password");
     }
 
-    if (err) {
-      alert("too many times");
-    }
+    // if (error) {
+    //   alert("too many times");
+    // }
+
   }
 
   const updatevalue = (values) => {
@@ -64,7 +60,7 @@ function Editepage() {
             email: user.email,
             number: user.number,
             adress: user.adress,
-            password: user.password,
+            password: "",
           }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
@@ -153,6 +149,7 @@ function Editepage() {
               <br />
               <button
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 outline-none"
+                type="button"
                 onClick={forpasswordCheck}
               >
                 password check

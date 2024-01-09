@@ -48,4 +48,23 @@ function Viewprofile() {
   );
 }
 
+function checkpass () {
+  let count = 0
+  const limit = 3
+  let error = false
+  const password = "password"
+  let res 
+  if(count > limit){
+    while(res !== password && error === false){
+      res = window.prompt("specify your pass word")
+      count ++
+      alert('u got it')
+    }
+  }else{
+    error = true
+    alert("too many trials")
+  }
+
+}
+
 export default Viewprofile;
